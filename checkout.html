@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Zara Bakes</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fffafc;
+            color: #4b2c42;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-weight: bold;
+            color: #7e4a8a;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .checkout {
+            padding: 20px;
+            background-color: #ffebf5;
+            border-radius: 8px;
+        }
+
+        .checkout input[type="text"], 
+        .checkout input[type="number"],
+        .checkout select {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #dab3ff;
+            border-radius: 4px;
+        }
+
+        .checkout button {
+            padding: 10px 20px;
+            background-color: #b084c2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        footer {
+            background-color: #f3e8ff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Checkout</h1>
+        <div class="checkout">
+            <form id="checkout-form">
+                <input type="text" id="name" placeholder="Enter your name" required><br>
+                <input type="text" id="address" placeholder="Enter your address" required><br>
+                <input type="text" id="phone" placeholder="Enter your phone number" required><br>
+                <select id="product" required>
+                    <option value="">Select a product</option>
+                    <option value="brownies">Brownies</option>
+                    <option value="cakes">Cakes</option>
+                    <option value="cookies">Cookies</option>
+                    <option value="milkshakes">Milkshakes</option>
+                    <option value="waffles">Waffles</option>
+                    <option value="pancakes">Pancakes</option>
+                </select>
+                <input type="number" id="quantity" placeholder="Enter quantity" required min="1"><br>
+                <button type="submit">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Zara Bakes. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('checkout-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const product = document.getElementById('product').value;
+            const quantity = document.getElementById('quantity').value;
+
+            if (name && address && phone && product && quantity) {
+                alert('Thank you, ' + name + '! Your order of ' + quantity + ' ' + product + '(s) has been placed.');
+            } else {
+                alert('Please fill out all fields.');
+            }
+        });
+    </script>
+
+</body>
+</html>
